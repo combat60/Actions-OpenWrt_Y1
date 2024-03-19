@@ -10,9 +10,13 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-#
+# Modify hostname
+sed -i 's/OpenWrt/Newifi-Y1/g' package/base-files/files/bin/config_generate
+
+# Modify batman
 rm -rf feeds/routing/batman-adv
 git clone https://github.com/combat60/batman feeds/routing/batman-adv
+
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.60.1/g' package/base-files/files/bin/config_generate
 
