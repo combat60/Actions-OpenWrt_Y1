@@ -17,6 +17,10 @@ sed -i 's/OpenWrt/Newifi-Y1/g' package/base-files/files/bin/config_generate
 rm -rf feeds/routing/batman-adv
 git clone https://github.com/combat60/batman feeds/routing/batman-adv
 
+# Modify golang1。22
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.60.1/g' package/base-files/files/bin/config_generate
 
